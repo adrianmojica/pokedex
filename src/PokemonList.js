@@ -10,6 +10,7 @@ function PokemonList({pokemon}) {
     const [pokemonInfo, setPokemonInfo] = useState([])
     const [pokeImage, setPokemonImage] = useState([])
     const [pokeType, setPokemonType] = useState([])
+    const [pokeKlas, setPokemonKlas] = useState([])
     
     useEffect (()=> {
         let cancel;
@@ -20,18 +21,24 @@ function PokemonList({pokemon}) {
             setPokemonInfo(data)
             setPokemonImage(data.sprites.front_default)
             setPokemonType(data.types[0].type.name)
+            setPokemonKlas('animated bounceIn')
         })
         .catch(err => console.log(err));
     });
     
     return (
         <>
-        <div>
-            {pokemon.map(p=>(
-                <div key={p.name}><button onClick={() => setViewPokemon(p.url)} className="poke-cell">{p.name}</button></div>
+        <div className="column">
+            <div className="grid-container">
+                {pokemon.map(p=>(
+                <div className="grid-item" key={p.name}><button className="pokecell" onClick={() => setViewPokemon(p.url)} className="poke-cell">{p.name}</button></div>
             ))}
+            </div>
+            
         </div>
-        <DetailView pokemonInfo={pokemonInfo} sprite={pokeImage} type={pokeType}/>
+        <div className="column">
+            <DetailView pokemonInfo={pokemonInfo} sprite={pokeImage} type={pokeType} klas={pokeKlas}/>
+        </div>
         </>
     );
 }

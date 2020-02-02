@@ -44,11 +44,15 @@ function App() {
 
   return (
     <>
-    <PokemonList pokemon={pokemon} />
-    <Pagination
-      gotoNextPage={nextPageUrl ? gotoNextPage: null}
-      gotoPrevPage={prevPageUrl ? gotoPrevPage: null}
-    />
+    <div className="pokedex">
+      <PokemonList pokemon={pokemon} />
+    </div>
+    <div className="pagination">
+      <Pagination
+          gotoNextPage={nextPageUrl ? gotoNextPage: null}
+          gotoPrevPage={prevPageUrl ? gotoPrevPage: null}
+        />
+    </div>
     </>
   );
 }

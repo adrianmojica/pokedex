@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.pokedex {
+    display: flex;
+    min-height: 400px;
+    max-width: 850px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+
+.pagination {
+    position: absolute;
+    top: 376px;
+    margin-left: 10px;
+}
